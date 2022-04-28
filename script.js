@@ -11,7 +11,9 @@ function Circle(x, y, r, c) {
     this.c = c;
 
     this.dx = Math.random() * 4 + 1;
+    this.dx *= Math.floor(Math.random() * 2) === 1 ? 1 : -1;
     this.dy = Math.random() * 4 + 1;
+    this.dy *= Math.floor(Math.random() * 2) === 1 ? 1 : -1;
 
     this.draw = function () {
         ctx.beginPath();
