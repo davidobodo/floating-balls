@@ -21,5 +21,24 @@ function Circle(x, y, r, c) {
     };
 }
 
-let ball = new Circle(200, 200, 40, "red");
-ball.draw();
+const balls = [];
+const NUM_OF_BALLS = 20;
+const SMALLEST_RADIUS = 15;
+const BIGGEST_RADIUS = 30;
+
+// Create balls
+for (let i = 0; i < NUM_OF_BALLS; i++) {
+    let r = Math.floor(Math.random() * BIGGEST_RADIUS) + 15;
+    let x = Math.random() * (canvas.width - r * 2) + r;
+    let y = Math.random() * (canvas.height - r * 2) + r;
+    let c = "red";
+    balls.push(new Circle(x, y, r, c));
+}
+
+// Draw the balls
+function Update() {
+    for (let i = 0; i < balls.length; i++) {
+        balls[i].draw();
+    }
+}
+Update();
