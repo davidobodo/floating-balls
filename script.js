@@ -26,12 +26,20 @@ function Circle(x, y, r, c) {
         this.x += this.dx;
         this.y += this.dy;
 
+        // Make balls bounce off the wall
+        if (this.x + this.r > canvas.width || this.x - this.r < 0) {
+            this.dx = -this.dx;
+        }
+        if (this.y + this.r > canvas.height || this.y - this.r < 0) {
+            this.dy = -this.dy;
+        }
+
         this.draw();
     };
 }
 
 const balls = [];
-const NUM_OF_BALLS = 20;
+const NUM_OF_BALLS = 40;
 const SMALLEST_RADIUS = 15;
 const BIGGEST_RADIUS = 30;
 
