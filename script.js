@@ -44,6 +44,8 @@ for (let i = 0; i < NUM_OF_BALLS; i++) {
 
 // Draw the balls
 function Update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     for (let i = 0; i < balls.length; i++) {
         balls[i].animate();
     }
