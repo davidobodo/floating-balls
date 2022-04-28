@@ -45,7 +45,7 @@ const BIGGEST_RADIUS = 30;
 
 // Create balls
 for (let i = 0; i < NUM_OF_BALLS; i++) {
-    let r = Math.floor(Math.random() * BIGGEST_RADIUS) + 15;
+    let r = Math.floor(Math.random() * BIGGEST_RADIUS) + SMALLEST_RADIUS;
     let x = Math.random() * (canvas.width - r * 2) + r;
     let y = Math.random() * (canvas.height - r * 2) + r;
     let c = "red";
@@ -63,3 +63,8 @@ function Update() {
     requestAnimationFrame(Update);
 }
 Update();
+
+canvas.addEventListener("click", function (e) {
+    let r = Math.floor(Math.random() * BIGGEST_RADIUS) + SMALLEST_RADIUS;
+    balls.push(new Circle(e.clientX, e.clientY, r, "blue"));
+});
