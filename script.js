@@ -10,14 +10,21 @@ function Circle(x, y, r, c) {
     this.r = r;
     this.c = c;
 
-    this.dx;
-    this.dy;
+    this.dx = Math.random() * 4 + 1;
+    this.dy = Math.random() * 4 + 1;
 
     this.draw = function () {
         ctx.beginPath();
         ctx.fillStyle = this.c;
         ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); //Start drawing at zero
         ctx.fill();
+    };
+
+    this.animate = function () {
+        this.x += this.dx;
+        this.y += this.dy;
+
+        this.draw();
     };
 }
 
@@ -38,7 +45,9 @@ for (let i = 0; i < NUM_OF_BALLS; i++) {
 // Draw the balls
 function Update() {
     for (let i = 0; i < balls.length; i++) {
-        balls[i].draw();
+        balls[i].animate();
     }
+
+    requestAnimationFrame(Update);
 }
 Update();
